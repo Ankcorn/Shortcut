@@ -4,25 +4,12 @@ import styled, { css } from "styled-components";
 import { Ionicons } from "@expo/vector-icons";
 import Main from "./Text";
 import firebase from "firebase";
-import env from '../Env'
 
-const config = {
-    apiKey: env.API_KEY,
-    authDomain: env.AUTH_DOMAIN,
-    databaseURL: env.DATABASE_URL,
-    projectId: env.PROJECT_ID,
-    storageBucket: env.STORAGE_BUCKET,
-    messagingSenderId: env.MESSAGING_SENDER_ID
-  };
-  const firebaseApp = firebase.initializeApp(config);
-  
-  const rootRef = firebase.database().ref();
+import init from '../firebase';
+
+const fire = init;
 
 const Edit = styled.View`
-    /* Shape: */
-    ${props => props.edit ? css`
-        background-color: grey;
-    `: null}
     /* EDIT: */
     /* font-family: SourceSansPro-Regular; */
     font-size: 15px;
@@ -78,20 +65,30 @@ const EditButton = ({ edit, onPress }) => (
     </TouchableOpacity>
 );
 
+const SaveButton = ({ edit, onPress }) => (
+    <TouchableOpacity onPress={onPress}>
+        <Edit>
+            <Ionicons name="md-save"/>
+            <Text>Save</Text>
+        </Edit>
+    </TouchableOpacity>
+);
+
 export default class Editty extends React.Component { 
   state = {
       edit: false,
       info: [],
       editValue: ''  
   }
-  addItem() {
-      //this.setState({info: [...this.state.info, this.state.editValue]})
-      firebase.database().ref('users/' + "abc").set({
-        "hello": "wasup"
-    });
+  addItem = () => {
+      this.setState({info: [...this.state.info, this.state.editValue], editValue: ''});
   }
-  addItem = () => this.setState({info: [...this.state.info, this.state.editValue], editValue: ''})
-  activateState = () => this.setState({edit: !this.state.edit})
+  activateState = () => {
+      if(this.state.edit) firebase.database().ref('users/' + "abc" + "/" + this.props.title.trim()).set(
+        this.state.info
+      );
+      this.setState({edit: !this.state.edit})
+    }
   removeItem = (el) => this.setState({info: this.state.info.filter((txt) => txt !== el) })
   render() {
     const { edit, editValue, info } = this.state;
@@ -99,7 +96,7 @@ export default class Editty extends React.Component {
       <Container>
         <Header>
           <Main>{this.props.title}</Main>
-          <EditButton onPress={this.activateState} edit={edit} />
+          {!edit?<EditButton onPress={this.activateState} edit={edit} /> : <SaveButton onPress={this.activateState} edit={edit} />}
         </Header>
         {edit && <EditView>
             <UnderLine onChangeText={(editValue) => this.setState({editValue})} value={editValue}/>
