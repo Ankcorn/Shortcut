@@ -55,7 +55,7 @@ typings/
 .yarn-integrity
 
 # environment variables file
-/mobile/Env
+/mobile/Env.js
 
 # next.js build output
 .next

@@ -3,6 +3,20 @@ import { Text, TextInput, View, TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components";
 import { Ionicons } from "@expo/vector-icons";
 import Main from "./Text";
+import firebase from "firebase";
+import env from '../Env'
+
+const config = {
+    apiKey: env.API_KEY,
+    authDomain: env.AUTH_DOMAIN,
+    databaseURL: env.DATABASE_URL,
+    projectId: env.PROJECT_ID,
+    storageBucket: env.STORAGE_BUCKET,
+    messagingSenderId: env.MESSAGING_SENDER_ID
+  };
+  const firebaseApp = firebase.initializeApp(config);
+  
+  const rootRef = firebase.database().ref();
 
 const Edit = styled.View`
     /* Shape: */
@@ -65,13 +79,20 @@ const EditButton = ({ edit, onPress }) => (
 );
 
 export default class Editty extends React.Component {
+    
   state = {
       edit: false,
       info: [],
       editValue: ''  
   }
-  addItem = () => this.setState({info: [...this.state.info, this.state.editValue]})
+  addItem() {
+      //this.setState({info: [...this.state.info, this.state.editValue]})
+      firebase.database().ref('users/' + "abc").set({
+        "hello": "wasup"
+    });
+  }
   activateState = () => this.setState({edit: !this.state.edit})
+
   render() {
     const { edit, editValue, info } = this.state;
     return (
