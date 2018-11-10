@@ -21,29 +21,39 @@ const Edit = styled.View`
     border-radius: 4px;
     display: flex;
     flex-direction: row;
-    width: 60px;
+    /*width: 60px;*/
     justify-content: space-between;
     align-items: center;
     padding: 5px;
 `;
 
 const Container = styled.View`
-    margin: 10px;
-    margin-bottom: 25px;
+    margin: 25px;
+    margin-bottom: 45px;
 `;
 
 const Header = styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 250px;
+    width: 300px;
+`;
+
+const Description = styled.Text`
+    /* You’ll be able to pu: */
+    /* font-family: SourceSansPro-Regular; */
+    font-size: 16px;
+    color: #296091;
+    letter-spacing: 0;
 `;
 
 const EditView = styled.View`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 220px;
+    align-items: center;
+    width: 250px;
+    margin-bottom: 20px;
 `;
 
 const Submit = styled.Text`
@@ -54,38 +64,41 @@ const Submit = styled.Text`
 const UnderLine = styled.TextInput`
     border-bottom-color: black;
     border-bottom-width: 1px;
-    flex: 1;
+    width: 150px;
+    margin-top: 10px;
+    height: 35px;
 `;
 
-const EditButton = ({ edit, onPress }) => (
+const Button = ({ edit, onPress, title, icon }) => (
     <TouchableOpacity onPress={onPress}>
         <Edit edit={edit}>
-            <Ionicons name="md-create"/>
-            <Text>EDIT</Text>
+            <Ionicons style={{paddingRight:5}} name={icon}/>
+            <Text>{title}</Text>
         </Edit>
     </TouchableOpacity>
 );
 
-const SaveButton = ({ edit, onPress }) => (
-    <TouchableOpacity onPress={onPress}>
-        <Edit>
-            <Ionicons name="md-save"/>
-            <Text>Save</Text>
-        </Edit>
-    </TouchableOpacity>
-);
-
-export default class Editty extends React.Component { 
+export default class ListSelect extends React.Component { 
   state = {
       edit: false,
       info: [],
       editValue: ''  
   }
+
+  async componentDidMount(){
+      const users = firebase.database().ref('users/' + "abc" + "/" + this.props.keyName)
+      users.on('value', (snapshot) => {
+        const exists = (snapshot.val() !== null);
+        if(!exists) return this.setState({info: []})
+        return this.setState({ info: snapshot.val()});
+      });
+  }
   addItem = () => {
       this.setState({info: [...this.state.info, this.state.editValue], editValue: ''});
   }
   activateState = () => {
-      if(this.state.edit) firebase.database().ref('users/' + "abc" + "/" + this.props.title.trim()).set(
+      console.log('help', JSON.stringify(this.props))
+      if(this.state.edit) firebase.database().ref('users/' + "abc" + "/" + this.props.keyName).set(
         this.state.info
       );
       this.setState({edit: !this.state.edit})
@@ -97,13 +110,28 @@ export default class Editty extends React.Component {
       <Container>
         <Header>
           <Main>{this.props.title}</Main>
-          {!edit?<EditButton onPress={this.activateState} edit={edit} /> : <SaveButton onPress={this.activateState} edit={edit} />}
+          {!edit?<Button onPress={this.activateState} title="EDIT" icon="md-create" /> : <Button onPress={this.activateState} title="SAVE" icon="md-save"/>}
         </Header>
+        <Description>{this.props.description}</Description>
         {edit && <EditView>
             <UnderLine onChangeText={(editValue) => this.setState({editValue})} value={editValue}/>
-            <TouchableOpacity onPress={this.addItem}><Submit>Submit</Submit></TouchableOpacity>
+            <Button onPress={this.addItem} title="ADD" icon="md-add"/>
         </EditView>}
-        {info.map(el => !edit ?  <Text key={el}>{el}</Text> : <TouchableOpacity key={el} onPress={() => this.removeItem(el)}><Text>{el}</Text></TouchableOpacity>)}
+        {info.map(el => !edit ?  <Text key={el}>{el}</Text> : <TouchableOpacity
+            style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                padding: 5,
+                width: 100,
+            }}
+            key={el}
+            onPress={() => this.removeItem(el)}
+        >
+            <Text>{el}</Text>
+            <Ionicons style={{
+                paddingLeft: 10
+            }} name="md-close" />
+        </TouchableOpacity>)}
       </Container>
     );
   }

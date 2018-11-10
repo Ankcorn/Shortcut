@@ -8,12 +8,15 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   Image,
+  ScrollView
 } from "react-native";
 import Icon from "../components/Icon";
 import MainText from "../components/Text";
 import Header from "../components/header";
-import Editty from "../components/editty";
-import qrIcon from "../assets/QR.png"
+import ListSelect from "../components/ListSelect";
+import TextSelect from "../components/TextSelect";
+import qrIcon from "../assets/QR.png";
+
 
 export default class App extends React.Component {
   state = {
@@ -36,8 +39,8 @@ export default class App extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
-        <Header big menu/>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
+        <Header big menu description="Hi, Leon. Are you ready to make your train ticket-buying experience a lot easier?"/>
         {!this.state.keyboardOpen && <React.Fragment>
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={e => navigate("QR")}>
@@ -49,20 +52,35 @@ export default class App extends React.Component {
             </View>
           </TouchableOpacity>
         </View></React.Fragment>}
-
-        <Editty title="Name and age" />
+        <KeyboardAvoidingView behavior="padding">
+        {/* <Editty title="Name and age" />
         <Editty title="Preferred settings" />
         <Editty title="Travel Card" />
-        <Editty title="Accessability" />
-      </View>
+        <Editty title="Accessability" /> */}
+          <TextSelect
+            title="Name and age"
+            keyName="profile"
+            description="For personalised recommendations on discounts you might qualify for."
+          />
+          <TextSelect
+            title="Preferred language"
+            keyName="local"
+            description="If possible, we’ll automatically set the language to your preference"
+          />
+          <ListSelect
+            title="My favourite destinations"
+            keyName="favourites"
+            description="You’ll be able to purchase these with a single tap at the machine."
+          />
+        </KeyboardAvoidingView>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     backgroundColor: '#FFFFFF'
   },
   buttonContainer: {
