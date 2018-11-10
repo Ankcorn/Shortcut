@@ -1,0 +1,89 @@
+.choice-content {
+  background-image: url(./img/mockups/choice.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-family: "Source Sans Pro", sans-serif;
+  height: 880px;
+
+  display: grid;
+  grid-template-columns: 327px 500px auto;
+  grid-template-rows: auto 150px;
+  grid-template-areas:
+    "empty welcome choice"
+    "nav nav nav";
+
+  .welcome-column {
+    padding: 40px;
+    grid-area: welcome;
+
+    .icon {
+      height: 80px;
+      width: 140px;
+      border: 1px solid red;
+    }
+
+    h2 {
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 60px;
+    }
+
+    img {
+      width: 250px;
+      height: 150px;
+    }
+  }
+
+  .choice-column {
+    grid-area: choice;
+    padding: 40px;
+
+    h2 {
+      font-size: 36px;
+    }
+
+    .details-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 100px;
+      grid-row-gap: 10px;
+
+      .details {
+
+      }
+
+      .action {
+
+
+        button {
+          background-image: linear-gradient(-180deg, #8FA4CA 2%, #063663 100%);
+          border-radius: 18px;
+          height: 100%;
+          width: 100%;
+          color: white;
+          font-weight: bold;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .navigation {
+    grid-area: nav;
+
+    button {
+      float: right;
+      height: 100px;
+      width: 300px;
+      background-color: white;
+      border: 4px solid black;
+      margin-right: 50px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+  }
+}
