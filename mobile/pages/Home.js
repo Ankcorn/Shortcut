@@ -6,13 +6,11 @@ export default class App extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={(e) => {
-          console.log('hi')
-          navigate('QR')
-          }} >
+        <Text style={styles.welcome}>Hey Tom!</Text>
+        <TouchableOpacity onPress={(e) => navigate('QR') } >
           <Text style={styles.button}  accessibilityLabel="Learn more about this purple button">Scan</Text>
         </TouchableOpacity>
-        <Text>Hey Tom</Text>
+        
       </View>
     );
   }
@@ -38,4 +36,8 @@ const styles = StyleSheet.create({
     width: 200,
     textAlign:'center',
   },
+  welcome: {
+      fontSize: 42,
+      letterSpacing: 4
+  }
 });
