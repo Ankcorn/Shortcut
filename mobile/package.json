@@ -9,7 +9,6 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "dotenv": "^6.1.0",
     "expo": "^31.0.2",
     "expo-cli": "^2.3.8",
     "firebase": "^5.5.8",

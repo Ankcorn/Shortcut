@@ -6,7 +6,7 @@ import firebase from "firebase";
 import Camera from './pages/Camera';
 import HomeScreen from './pages/Home';
 
-require('dotenv').config()
+import env from './Env'
 
 const Navigation = createStackNavigator({
   Home: { screen: HomeScreen },
@@ -14,16 +14,16 @@ const Navigation = createStackNavigator({
 });
 
 const config = {
-  apiKey: proces.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: procees.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID
+  apiKey: env.API_KEY,
+  authDomain: env.AUTH_DOMAIN,
+  databaseURL: env.DATABASE_URL,
+  projectId: env.PROJECT_ID,
+  storageBucket: env.STORAGE_BUCKET,
+  messagingSenderId: env.MESSAGING_SENDER_ID
 };
-
 const firebaseApp = firebase.initializeApp(config);
 
 const rootRef = firebase.database().ref();
 const itemsRef = rootRef.child('items');
+
 export default Navigation;
