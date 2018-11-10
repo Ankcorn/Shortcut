@@ -1,9 +1,9 @@
 {
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://iu-5z2.anonymous.mobile.exp.direct",
-  "packagerNgrokUrl": "https://packager.iu-5z2.anonymous.mobile.exp.direct",
-  "ngrokPid": 95844,
+  "expoServerPort": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "devToolsPort": 19002,
-  "packagerPort": 19004,
-  "packagerPid": 95811
+  "packagerPort": null,
+  "packagerPid": null
 }
