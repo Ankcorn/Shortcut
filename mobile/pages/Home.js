@@ -6,12 +6,14 @@ import {
   Button,
   TouchableOpacity,
   KeyboardAvoidingView,
-  Keyboard
+  Keyboard,
+  Image,
 } from "react-native";
 import Icon from "../components/Icon";
 import MainText from "../components/Text";
 import Header from "../components/header";
 import Editty from "../components/editty";
+import qrIcon from "../assets/QR.png"
 
 export default class App extends React.Component {
   state = {
@@ -34,17 +36,17 @@ export default class App extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
-        <Header />
+      <View style={styles.container}>
+        <Header big menu/>
         {!this.state.keyboardOpen && <React.Fragment>
-        <View>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={e => navigate("QR")}>
-            <Text
+            <View
               style={styles.button}
-              accessibilityLabel="Learn more about this purple button"
             >
-              Scan
-            </Text>
+              <Image source={qrIcon} />
+              <Text style={styles.buttonText} accessibilityLabel="Click this button to scan the qr code">SCAN QR</Text>
+            </View>
           </TouchableOpacity>
         </View></React.Fragment>}
 
@@ -60,20 +62,32 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    backgroundColor: '#FFFFFF'
+  },
+  buttonContainer: {
+    alignSelf: 'center'
   },
   button: {
-    backgroundColor: "blue",
-    borderColor: "white",
-    borderWidth: 1,
-    borderRadius: 12,
+    backgroundColor: "#296091",
+    shadowColor: '#000',
+    shadowOffset: {  width: 0,  height: 4,  },
+    shadowRadius: 4,
+    borderRadius: 15,
+    width: 305,
+    height: 98,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
+  },
+  buttonText: {
     color: "white",
-    fontSize: 24,
+    fontSize: 30,
+    letterSpacing: 5,
     fontWeight: "bold",
     overflow: "hidden",
-    padding: 12,
-    width: 200,
-    textAlign: "center"
+    textAlign: "right"
   },
   welcome: {
     fontSize: 42,

@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Main from "./Text";
 import firebase from "firebase";
 
+
 import init from '../firebase';
 
 const fire = init;
