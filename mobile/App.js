@@ -8,6 +8,6 @@ import HomeScreen from './pages/Home';
 const Navigation = createStackNavigator({
   Home: { screen: HomeScreen },
   QR: {screen: Camera },
-});
+}, { headerMode: 'none' });
 
 export default Navigation;
