@@ -38,12 +38,13 @@ export default class CameraExample extends React.Component {
         }
       }
     
+      // Data is the TVM ID
       _handleBarCodeRead = ({ type, data }) => {
         const { navigate } = this.props.navigation;
         this.setState({hasBarCode: true})
 
         async function _pairTvm() {
-          console.log("pair TVM")
+          navigate('Home')
           try {
             let response = await fetch('https://us-central1-chuuchuu-758d6.cloudfunctions.net/pairTvm', {
               method: 'POST',
@@ -53,7 +54,7 @@ export default class CameraExample extends React.Component {
               },
               body: JSON.stringify({
                 userId: 'user_abc',
-                tvmId: 'tvm_12345',
+                tvmId: data,
               }),
             });
             let responseJson = await response.json();
