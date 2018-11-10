@@ -2138,7 +2138,11 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
+<<<<<<< HEAD
 core-js@2.5.5:
+=======
+core-js@2.5.5, core-js@^2.2.2, core-js@^2.4.0, core-js@^2.4.1:
+>>>>>>> 6c80d54396180df2728b415447529a34a39d89d7
   version "2.5.5"
   resolved "http://registry.npmjs.org/core-js/-/core-js-2.5.5.tgz#b14dde936c640c0579a6b50cabcc132dd6127e3b"
 
@@ -2146,7 +2150,11 @@ core-js@^1.0.0:
   version "1.2.7"
   resolved "http://registry.npmjs.org/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
+<<<<<<< HEAD
 core-js@^2.2.2, core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0, core-js@^2.5.7:
+=======
+core-js@^2.5.0, core-js@^2.5.7:
+>>>>>>> 6c80d54396180df2728b415447529a34a39d89d7
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
 
@@ -5356,7 +5364,11 @@ react-native-gesture-handler@1.0.9:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+<<<<<<< HEAD
 "react-native-maps@github:expo/react-native-maps#v0.22.0-exp.0":
+=======
+react-native-maps@expo/react-native-maps#v0.22.0-exp.0:
+>>>>>>> 6c80d54396180df2728b415447529a34a39d89d7
   version "0.22.0"
   resolved "https://codeload.github.com/expo/react-native-maps/tar.gz/cb9d9ec23d4d176bddd6d465a583462f9c1056a0"
   dependencies:

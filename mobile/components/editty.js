@@ -78,8 +78,7 @@ const EditButton = ({ edit, onPress }) => (
     </TouchableOpacity>
 );
 
-export default class Editty extends React.Component {
-    
+export default class Editty extends React.Component { 
   state = {
       edit: false,
       info: [],
@@ -91,8 +90,9 @@ export default class Editty extends React.Component {
         "hello": "wasup"
     });
   }
+  addItem = () => this.setState({info: [...this.state.info, this.state.editValue], editValue: ''})
   activateState = () => this.setState({edit: !this.state.edit})
-
+  removeItem = (el) => this.setState({info: this.state.info.filter((txt) => txt !== el) })
   render() {
     const { edit, editValue, info } = this.state;
     return (
@@ -105,7 +105,7 @@ export default class Editty extends React.Component {
             <UnderLine onChangeText={(editValue) => this.setState({editValue})} value={editValue}/>
             <TouchableOpacity onPress={this.addItem}><Submit>Submit</Submit></TouchableOpacity>
         </EditView>}
-        {info.map(el => <Text key={el}>{el}</Text>)}
+        {info.map(el => !edit ?  <Text key={el}>{el}</Text> : <TouchableOpacity key={el} onPress={() => this.removeItem(el)}><Text>{el}</Text></TouchableOpacity>)}
       </Container>
     );
   }

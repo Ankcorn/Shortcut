@@ -5,3 +5,7 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
+<<<<<<< HEAD
+=======
+Env.js
+>>>>>>> 6c80d54396180df2728b415447529a34a39d89d7
