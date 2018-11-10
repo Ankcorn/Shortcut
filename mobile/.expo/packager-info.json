@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://s3-zqa.anonymous.mobile.exp.direct",
+  "packagerNgrokUrl": "https://packager.s3-zqa.anonymous.mobile.exp.direct",
+  "ngrokPid": 87387
 }
