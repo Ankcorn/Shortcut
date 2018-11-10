@@ -1,0 +1,30 @@
+{
+  "name": "tvm",
+  "version": "1.0.0",
+  "description": "Ticket Vending Machine Mockup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "firebase": "^5.5.8",
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.1",
+    "gulp-connect": "^5.6.1",
+    "gulp-less": "4.0.1",
+    "moment": "^2.22.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasAnkcorn/ChhhChhhChhhhhh.git"
+  },
+  "author": "Struan McDonough",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasAnkcorn/ChhhChhhChhhhhh/issues"
+  },
+  "homepage": "https://github.com/ThomasAnkcorn/ChhhChhhChhhhhh#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  }
+}

@@ -1,0 +1,45 @@
+@padding-value-outer: 50px;
+@padding-value-inner: 25px;
+
+body {
+  background-image: url(./img/debut_dark.png);
+  background-repeat: repeat;
+}
+
+.wrapper{
+  width: 1700px;
+  height: 1200px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .border-1 {
+    padding: @padding-value-outer;
+    background-color: #423828;
+    height: calc(100% - (2 * @padding-value-outer));
+    border-radius: 40px;
+    border: 2px solid #4b4030;
+
+    .border-2 {
+      padding: @padding-value-inner;
+      background-color: #24251F;
+      height: calc(100% - (2 * @padding-value-inner));
+      border-radius: 20px;
+      border: 1px solid black;
+
+      .screen {
+        background-color: white;
+        height: calc(100% - 20px);
+        border: 10px solid black;
+      }
+    }
+  }
+}
+
+
+.header {
+  height: 100px;
+  width: 100%;
+}
