@@ -2,6 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, Alert } from 'react-native';
 import {  Permissions, BarCodeScanner } from 'expo';
 
+import firebase from "firebase";
+
+import init from '../firebase';
+
+const fire = init;
+
 export default class CameraExample extends React.Component {
     state = {
         hasCameraPermission: null,
@@ -35,15 +41,36 @@ export default class CameraExample extends React.Component {
       _handleBarCodeRead = ({ type, data }) => {
         const { navigate } = this.props.navigation;
         this.setState({hasBarCode: true})
+
+        async function _pairTvm() {
+          console.log("pair TVM")
+          try {
+            let response = await fetch('https://us-central1-chuuchuu-758d6.cloudfunctions.net/pairTvm', {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                userId: 'user_abc',
+                tvmId: 'tvm_12345',
+              }),
+            });
+            let responseJson = await response.json();
+            } catch (error) {
+              console.error(error);
+            }
+        };
+
         Alert.alert( 
             `Bar code with type ${type} and data ${data} has been scanned!`,
             `Bar code with type ${type} and data ${data} has been scanned!`,
             [
                 {text: 'Help    ', onPress: () => navigate('Home')},
                 {text: 'Cancel', onPress: () => navigate('Home'), style: 'cancel'},
-                {text: 'OK', onPress: () => navigate('Home')},
+                {text: 'OK', onPress: () => _pairTvm()},
               ],
               { cancelable: false }
         );
       }
-}
+    }
