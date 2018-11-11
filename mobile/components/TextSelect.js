@@ -26,7 +26,6 @@ const ButtonText = styled.Text`
 `
 const Container = styled.View`
   margin: 25px;
-  margin-bottom: 15px;
 `;
 
 const Header = styled.View`
