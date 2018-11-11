@@ -16,7 +16,6 @@
 .choice-content .welcome-column .icon {
   height: 80px;
   width: 140px;
-  border: 1px solid red;
 }
 .choice-content .welcome-column h2 {
   font-size: 32px;
@@ -43,6 +42,15 @@
   grid-auto-rows: 100px;
   grid-row-gap: 10px;
 }
+.choice-content .choice-column .details-container .action-disabled button {
+  background-image: linear-gradient(-180deg, #fbfbfb 2%, #909090 100%);
+  border-radius: 18px;
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
 .choice-content .choice-column .details-container .action button {
   background-image: linear-gradient(-180deg, #8FA4CA 2%, #063663 100%);
   border-radius: 18px;
@@ -64,6 +72,22 @@
   margin-right: 50px;
   font-size: 32px;
   font-weight: bold;
+}
+.journey-price {
+  font-family: SourceSansPro-SemiBold;
+  font-size: 30px;
+  color: #292929;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 30px;
+}
+.journey-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.down-a-bit {
+  margin-top: 1 50px;
+  margin-left: 50px;
 }
 
 * {

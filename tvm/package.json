@@ -4,6 +4,7 @@
   "description": "Ticket Vending Machine Mockup",
   "main": "index.js",
   "scripts": {
+    "build:css": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
