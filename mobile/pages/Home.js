@@ -99,25 +99,25 @@ export default class App extends React.Component {
             keyName="profile"
             description="For personalised recommendations on discounts you might qualify for."
           />
-          <TextSelect
-            title="Preferred language"
-            keyName="local"
-            description="If possible, we’ll automatically set the language to your preference"
-          />
-          <SwitchSelect
-            title="Preferred language"
-          />
-          <ImageSelect
-            title="Rail Cards"
+          <ListSelect
+            title="My favourite destinations"
+            keyName="favourites"
+            description="You’ll be able to purchase these with a single tap at the machine."
           />
           <ToggleSelect
             title="Accessability at the ticket machine"
             keyName="accessability"
           />
-          <ListSelect
-            title="My favourite destinations"
-            keyName="favourites"
-            description="You’ll be able to purchase these with a single tap at the machine."
+          <SwitchSelect
+            title="Preferred settings"
+          />
+          <ImageSelect
+            title="Rail Cards"
+          />
+          <TextSelect
+            title="Preferred language"
+            keyName="local"
+            description="If possible, we’ll automatically set the language to your preference"
           />
         </KeyboardAvoidingView>
         <View>

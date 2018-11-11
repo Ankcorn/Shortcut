@@ -16,7 +16,6 @@ import railcard from "../assets/railcard.gif";
 
 const Container = styled.View`
   margin: 25px;
-  margin-bottom: 45px;
   align-items: center;
 `;
 const ItemText = styled.Text`

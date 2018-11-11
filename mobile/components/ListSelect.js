@@ -23,7 +23,7 @@ const Edit = styled.View`
 `;
 
 const Container = styled.View`
-  margin: 25px;
+    margin: 25px;
 `;
 
 const Header = styled.View`

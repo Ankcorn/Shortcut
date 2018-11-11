@@ -7,10 +7,12 @@ import './firebase';
 
 import Camera from './pages/Camera';
 import HomeScreen from './pages/Home';
+import Success from './pages/Success';
 
 const Navigation = createStackNavigator({
   Home: { screen: HomeScreen },
   QR: {screen: Camera },
+  Success: {screen: Success }
 }, { headerMode: 'none' });
 
 class FontLoader extends React.Component{

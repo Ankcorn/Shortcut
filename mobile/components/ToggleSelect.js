@@ -7,7 +7,6 @@ import firebase from "firebase";
 
 const Container = styled.View`
   margin: 25px;
-  margin-bottom: 45px;
   align-items: center;
 `;
 
