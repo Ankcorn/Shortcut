@@ -49,9 +49,9 @@ body {
 }
 
 .railcard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .choice-content .welcome-column p {
   font-size: 28px;
@@ -157,10 +157,6 @@ body {
   background-color: white;
 }
 
-body {
-  background-image: url(./images/debut_dark.png);
-  background-repeat: repeat;
-}
 .wrapper {
   width: 1700px;
   height: 1200px;
