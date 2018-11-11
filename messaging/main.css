@@ -1,17 +1,43 @@
+body {
+  display: block;
+  margin: 0px;
+}
+
 .choice-content {
-  background-image: url(./images/mockups/choice.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
   font-family: "Source Sans Pro", sans-serif;
-  height: 880px;
   display: grid;
-  grid-template-columns: 327px 500px auto;
-  grid-template-rows: auto 150px;
-  grid-template-areas: "empty welcome choice" "nav nav nav";
+  grid-template-columns: 320px 500px auto;
+  grid-template-areas: "empty welcome choice";
+  position: fixed;
+  height: 100%; 
+}
+
+.side-bar {
+  height: 100%;
+  background: #B1D8F5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 25px;  
+  position: relative;
+  width: 320px;
+}
+.side-bar_items {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 .choice-content .welcome-column {
   padding: 40px;
   grid-area: welcome;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 200px;
 }
 .choice-content .welcome-column .icon {
   height: 80px;
@@ -20,6 +46,12 @@
 }
 .choice-content .welcome-column h2 {
   font-size: 32px;
+}
+
+.railcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .choice-content .welcome-column p {
   font-size: 28px;
@@ -52,8 +84,16 @@
   font-weight: bold;
   font-size: 24px;
 }
-.choice-content .navigation {
-  grid-area: nav;
+
+.choice-content .choice-column .details-container .action-disabled button {
+  /* Rectangle 3 Copy 7: */
+  background-image: linear-gradient(-180deg, #FBFBFB 2%, #909090 100%);
+  border-radius: 18px;
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
 }
 .choice-content .navigation button {
   float: right;
@@ -70,17 +110,18 @@
   font-family: 'SourceSansPro', sans-serif;
 }
 .screen {
-  display: grid;
-  grid-template-rows: 150px auto;
-  grid-template-areas: "header" "main-content";
+  position: static;
+  width: 100%;
+  height: 100%;
 }
 .screen .header {
-  grid-area: header;
-  background-color: #13171F;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 100%;
-  border-right: 1px solid #13171F;
+    background-color: #13171F;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    border-right: 1px solid #13171F;
 }
 .screen .header .left {
   color: white;
@@ -93,7 +134,6 @@
   color: white;
   font-family: Arial, sans-serif;
   font-size: 32px;
-  margin-top: 80px;
   text-align: center;
 }
 .screen .header .right img {
@@ -107,7 +147,6 @@
   background-image: url(./images/mockups/home.png);
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 880px;
 }
 .home-content #qrcode {
   height: 255px;
