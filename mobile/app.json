@@ -25,6 +25,12 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "9",
+      "permissions": [
+        "CAMERA"
+      ]
     }
   }
 }

@@ -22,5 +22,15 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"
-  }
+  },
+  "expo": {
+    "name": "Shortcut",
+    "icon": "./assets/logo.png",
+    "version": "1.0.0",
+    "slug": "expo.io/@thomasankcorn/shortcut",
+    "sdkVersion": "XX.0.0",
+    "android": {
+      "package": "com.chhhchhhchhhhhhh.shortcut"
+    }
+   }
 }
