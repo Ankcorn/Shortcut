@@ -1,15 +1,9 @@
 {
+  "devToolsPort": 19002,
   "expoServerPort": null,
-<<<<<<< HEAD
+  "packagerPort": null,
+  "packagerPid": null,
   "expoServerNgrokUrl": "https://gq-enk.thomasankcorn.mobile.exp.direct",
   "packagerNgrokUrl": "https://packager.gq-enk.thomasankcorn.mobile.exp.direct",
-  "ngrokPid": 21758,
-=======
-  "expoServerNgrokUrl": "https://iu-5z2.anonymous.mobile.exp.direct",
-  "packagerNgrokUrl": "https://packager.iu-5z2.anonymous.mobile.exp.direct",
-  "ngrokPid": 20044,
->>>>>>> 74cc0463baf9b0cfcf9aabebc759842da4c63aab
-  "devToolsPort": 19002,
-  "packagerPort": null,
-  "packagerPid": null
+  "ngrokPid": 25997
 }
