@@ -5,16 +5,8 @@ import { Ionicons } from "@expo/vector-icons";
 import Main from "./Text";
 import firebase from "firebase";
 
-import init from "../firebase";
-
-const fire = init;
 
 const Edit = styled.View`
-  /* EDIT: */
-  /* font-family: SourceSansPro-Regular; */
-  font-size: 15px;
-  color: #5c5c5c;
-  letter-spacing: 1px;
   /* Rectangle 2: */
   border: 1px solid #5c5c5c;
   border-radius: 4px;
@@ -26,6 +18,12 @@ const Edit = styled.View`
   padding: 5px;
 `;
 
+const ButtonText = styled.Text`
+  font-family: SourceSansPro-Regular;
+  font-size: 15px;
+  color: #5c5c5c;
+  letter-spacing: 1px;
+`
 const Container = styled.View`
   margin: 25px;
   margin-bottom: 15px;
@@ -40,7 +38,7 @@ const Header = styled.View`
 
 const Description = styled.Text`
   /* You’ll be able to pu: */
-  /* font-family: SourceSansPro-Regular; */
+  font-family: SourceSansPro-Regular;
   font-size: 16px;
   color: #296091;
   letter-spacing: 0;
@@ -55,12 +53,16 @@ const EditView = styled.View`
   margin-bottom: 20px;
 `;
 
-const Submit = styled.Text`
-  color: red;
-  margin: 20px;
+const ItemText = styled.Text`
+    /* High contrast: */
+    font-family: SourceSansPro-Regular;
+    font-size: 16px;
+    color: #454545;
+    letter-spacing: 0;
 `;
 
 const UnderLine = styled.TextInput`
+  font-family: SourceSansPro-Regular;
   border-bottom-color: black;
   border-bottom-width: 1px;
   width: 150px;
@@ -68,11 +70,12 @@ const UnderLine = styled.TextInput`
   height: 35px;
 `;
 
+
 const Button = ({ edit, onPress, title, icon }) => (
   <TouchableOpacity onPress={onPress}>
     <Edit edit={edit}>
       <Ionicons style={{ paddingRight: 5 }} name={icon} />
-      <Text>{title}</Text>
+      <ButtonText>{title}</ButtonText>
     </Edit>
   </TouchableOpacity>
 );
@@ -180,8 +183,8 @@ export default class TextSelect extends React.Component {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
-                padding: 5,
-                width: 270
+                width: 280,
+                margin: 10
               }}
               onPress={() => this.activateState("name")}
             >
@@ -191,7 +194,7 @@ export default class TextSelect extends React.Component {
                   value={profileNameValue}
                 />
               ) : (
-                <Text>{profileNameValue}</Text>
+                <ItemText>{profileNameValue}</ItemText>
               )}
               {!profileNameEditting ? (
                 <Button
@@ -212,8 +215,8 @@ export default class TextSelect extends React.Component {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
-                padding: 5,
-                width: 270
+                width: 280,
+                margin: 10
               }}
               onPress={() => this.activateState}
             >
@@ -223,7 +226,7 @@ export default class TextSelect extends React.Component {
                   value={profileAgeValue}
                 />
               ) : (
-                <Text>{profileAgeValue}</Text>
+                <ItemText>{profileAgeValue}</ItemText>
               )}
               {!profileAgeEditting ? (
                 <Button
@@ -246,8 +249,8 @@ export default class TextSelect extends React.Component {
               flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
-              padding: 5,
-              width: 270
+              width: 280,
+              margin: 10
             }}
             onPress={() => this.activateState("lang")}
           >
@@ -257,7 +260,7 @@ export default class TextSelect extends React.Component {
                 value={profileLangValue}
               />
             ) : (
-              <Text>{profileLangValue}</Text>
+              <ItemText>{profileLangValue}</ItemText>
             )}
             {!profileLangEditting ? (
               <Button

@@ -8,52 +8,87 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   Image,
-  ScrollView
+  ScrollView,
+  Dimensions
 } from "react-native";
-import Icon from "../components/Icon";
 import MainText from "../components/Text";
 import Header from "../components/header";
 import ListSelect from "../components/ListSelect";
 import TextSelect from "../components/TextSelect";
+import ToggleSelect from '../components/ToggleSelect';
 import qrIcon from "../assets/QR.png";
+import firebase from "firebase";
+import background from "../assets/pexels-photo-543223.png";
+import backgroundMini from "../assets/pexels-mini.png";
+import logo from "../assets/logo.png";
+import init from "../firebase";
 
+const fire = init;
 
 export default class App extends React.Component {
   state = {
-    keyboardOpen: false
+    keyboardOpen: false,
+    name: "leon"
+  };
+  componentDidMount() {
+    this.keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      this._keyboardDidChange
+    );
+    this.keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      this._keyboardDidChange
+    );
+    this.initUser();
   }
-  componentDidMount () {
-    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidChange);
-    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidChange);
-  }
-
-  componentWillUnmount () {
+  initUser = async () => {
+    const users = firebase.database().ref("users/" + "abc" + "/" + "profile");
+    users.on("value", snapshot => {
+      const exists = snapshot.val() !== null;
+      if (!exists) return;
+      return this.setState({
+        name: snapshot.val().name
+      });
+    });
+  };
+  componentWillUnmount() {
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
   }
 
   _keyboardDidChange = () => {
-    this.setState({keyboardOpen: !this.state.keyboardOpen})
-  }
+    this.setState({ keyboardOpen: !this.state.keyboardOpen });
+  };
 
   render() {
     const { navigate } = this.props.navigation;
     return (
       <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
-        <Header big menu description="Hi, Leon. Are you ready to make your train ticket-buying experience a lot easier?"/>
-        {!this.state.keyboardOpen && <React.Fragment>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={e => navigate("QR")}>
-            <View
-              style={styles.button}
-            >
-              <Image source={qrIcon} />
-              <Text style={styles.buttonText} accessibilityLabel="Click this button to scan the qr code">SCAN QR</Text>
-            </View>
-          </TouchableOpacity>
-        </View></React.Fragment>}
+        <Header
+          big
+          menu
+          description={`Hi, ${
+            this.state.name
+          }. Are you ready to make your train ticket-buying experience a lot easier?`}
+        />
+        {!this.state.keyboardOpen && (
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={e => navigate("QR")}>
+              <View style={styles.button}>
+                <Image source={qrIcon} />
+                <Text
+                  style={styles.buttonText}
+                  accessibilityLabel="Click this button to scan the qr code"
+                >
+                  SCAN QR
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        )}
+
         <KeyboardAvoidingView behavior="padding">
-        {/* <Editty title="Name and age" />
+          {/* <Editty title="Name and age" />
         <Editty title="Preferred settings" />
         <Editty title="Travel Card" />
         <Editty title="Accessability" /> */}
@@ -67,12 +102,23 @@ export default class App extends React.Component {
             keyName="local"
             description="If possible, we’ll automatically set the language to your preference"
           />
+          <ToggleSelect
+            title="Accessability at the ticket machine"
+            keyName="accessability"
+          />
           <ListSelect
             title="My favourite destinations"
             keyName="favourites"
             description="You’ll be able to purchase these with a single tap at the machine."
           />
         </KeyboardAvoidingView>
+        <View>
+            <Image
+              style={{ width: "100%", height: "150%" }}
+              resizeMode="stretch"
+              source={logo}
+            />
+        </View>
       </ScrollView>
     );
   }
@@ -80,24 +126,26 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'flex-start',
-    backgroundColor: '#FFFFFF'
+    justifyContent: "flex-start",
+    backgroundColor: "#FFFFFF",
+    alignItems: "center"
   },
   buttonContainer: {
-    alignSelf: 'center'
+    alignSelf: "center"
   },
   button: {
     backgroundColor: "#296091",
-    shadowColor: '#000',
-    shadowOffset: {  width: 0,  height: 4,  },
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
     shadowRadius: 4,
     borderRadius: 15,
     width: 305,
     height: 98,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center'
+    fontFamily: 'SourceSansPro-Bold',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center"
   },
   buttonText: {
     color: "white",
