@@ -50,7 +50,6 @@ window.onload = async function() {
   document.querySelector('.details-container').innerHTML = data.favourites.map((el,index) => 
     `<div class="details"><h3>${el}</h3><h4>Adult, 1 ticket</h4></div><div class="action${el === 'London Bridge' ? '-disabled' : ''}"><button>${data.preferrences.type ? 'Return': 'Single'} £${(Math.random()*49+1).toFixed(2)}</button></div>`
   ).join('')
-
 }
 </script>
 </body>
