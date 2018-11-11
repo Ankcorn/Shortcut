@@ -12,7 +12,7 @@ exports.pairTvm = functions.https.onRequest((req, res) => {
       'userId': body.userId,
     };
     
-    request.post({
+    return request.post({
       'headers': {
         'Authorization': 'key=' + key,
         'Content-Type': 'application/json'
