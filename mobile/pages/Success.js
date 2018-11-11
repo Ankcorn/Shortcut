@@ -30,8 +30,16 @@ export default class App extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <Container>
-        <Header big menu description={`Hey, ${this.state.name}.`} />
-        <View><Ionicons name="md-arrow-round-up" size={256}/></View>
+        <Header navigate={navigate} big menu description={`Hey, ${this.state.name}. Follow the instructios on the ticket machine to complete your purchase`} />
+            <View style={{
+                flexDirection: 'column',
+                alignItems: 'center',
+                height: 300,
+                paddingTop: 100,
+                justifyContent: 'center',
+            }}>
+                <Ionicons name="md-arrow-round-up" size={256}/>
+            </View>
       </Container>
     );
   }

@@ -67,6 +67,7 @@ export default class App extends React.Component {
     return (
       <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
         <Header
+          navigate={navigate}
           big
           menu
           description={`Hi, ${

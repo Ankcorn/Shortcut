@@ -41,7 +41,7 @@ export default class Header extends Component {
                 <Image style={{position: 'absolute', height: 200, width: Dimensions.get('window').width}} resizeMode="stretch" source={this.props.big ? background : backgroundMini}/>
                 <Title>
                     <Image style={{width: "25%", height: "150%"}} resizeMode="stretch" source={logo}/>
-                    {this.props.menu && <TouchableOpacity>
+                    {this.props.menu && <TouchableOpacity onPress={() => this.props.navigate('Home')}>
                         <Ionicons size={32} name="md-menu" color="white"/>
                     </TouchableOpacity>}
                 </Title>
