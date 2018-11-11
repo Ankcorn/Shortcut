@@ -16,6 +16,8 @@ import Header from "../components/header";
 import ListSelect from "../components/ListSelect";
 import TextSelect from "../components/TextSelect";
 import ToggleSelect from '../components/ToggleSelect';
+import ImageSelect from '../components/ImageSelect';
+import SwitchSelect from '../components/SwitchSelect';
 import qrIcon from "../assets/QR.png";
 import firebase from "firebase";
 import background from "../assets/pexels-photo-543223.png";
@@ -101,6 +103,12 @@ export default class App extends React.Component {
             title="Preferred language"
             keyName="local"
             description="If possible, we’ll automatically set the language to your preference"
+          />
+          <SwitchSelect
+            title="Preferred language"
+          />
+          <ImageSelect
+            title="Rail Cards"
           />
           <ToggleSelect
             title="Accessability at the ticket machine"
