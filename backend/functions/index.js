@@ -5,9 +5,9 @@ admin.initializeApp(functions.config().firebase);
 
 exports.pairTvm = functions.https.onRequest((req, res) => {
     body = req.body
-    console.log('new message in the queue', body)
-    var key = 'service key';
-    var to = 'token';
+    console.log(body)
+    var key = '';
+    var to = '';
     var notification = {
       'userId': body.userId,
     };
@@ -24,5 +24,6 @@ exports.pairTvm = functions.https.onRequest((req, res) => {
       })
     }, function(error, response, body){
         console.log(body);
+        return true;
     })
   });

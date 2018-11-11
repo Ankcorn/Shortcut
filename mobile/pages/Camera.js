@@ -62,7 +62,7 @@ export default class CameraExample extends React.Component {
       );
       let responseJson = await response.json();
     } catch (error) {
-      // console.error(error);
+      console.error(error);
     }
   };
 }
