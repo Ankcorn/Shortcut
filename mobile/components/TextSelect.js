@@ -71,9 +71,9 @@ const UnderLine = styled.TextInput`
 `;
 
 
-const Button = ({ edit, onPress, title, icon }) => (
+const Button = ({ onPress, title, icon }) => (
   <TouchableOpacity onPress={onPress}>
-    <Edit edit={edit}>
+    <Edit>
       <Ionicons style={{ paddingRight: 5 }} name={icon} />
       <ButtonText>{title}</ButtonText>
     </Edit>

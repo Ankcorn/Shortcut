@@ -24,7 +24,6 @@ const Edit = styled.View`
 
 const Container = styled.View`
   margin: 25px;
-  margin-bottom: 45px;
 `;
 
 const Header = styled.View`
@@ -56,6 +55,14 @@ const Submit = styled.Text`
   margin: 20px;
 `;
 
+const ItemText = styled.Text`
+    /* High contrast: */
+    font-family: SourceSansPro-Regular;
+    font-size: 16px;
+    color: #454545;
+    letter-spacing: 0;
+`;
+
 const UnderLine = styled.TextInput`
   border-bottom-color: black;
   border-bottom-width: 1px;
@@ -70,7 +77,7 @@ const ButtonText = styled.Text`
   color: #5c5c5c;
   letter-spacing: 1px;
 `;
-const Button = ({ edit, onPress, title, icon }) => (
+export const Button = ({ edit, onPress, title, icon }) => (
   <TouchableOpacity onPress={onPress}>
     <Edit edit={edit}>
       <Ionicons style={{ paddingRight: 5 }} name={icon} />
@@ -148,7 +155,7 @@ export default class ListSelect extends React.Component {
                 margin: 10
               }}
             >
-              <Text>{el}</Text>
+              <ItemText>{el}</ItemText>
             </View>
           ) : (
             <TouchableOpacity
@@ -161,7 +168,7 @@ export default class ListSelect extends React.Component {
               key={el}
               onPress={() => this.removeItem(el)}
             >
-              <Text>{el}</Text>
+              <ItemText>{el}</ItemText>
               <Ionicons
                 style={{
                   paddingLeft: 10
