@@ -1,69 +1,36 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-  <link rel="stylesheet" href="main.css">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <script src="scripts/vendor/moment.min.js"></script>
+    <script src="scripts/vendor/qrcode.js"></script>
+    <script src="scripts/clock.js"></script>
+    <script src="scripts/tvm.js"></script>
 </head>
-
 <body>
-  <div class="screen">
-    <div class="header">
-      <div class="left">
-      </div>
-      <div class="centre">
-        London Bridge
-      </div>
-      <div class="right">
-        <img src="images/south-eastern.png">
-      </div>
+    <div class="wrapper">
+        <div class="border-1">
+            <div class="border-2">
+                <div class="screen">
+                    <div class="header">
+                        <div class="left">
+                        </div>
+                        <div class="centre">
+                            London Bridge
+                        </div>
+                        <div class="right">
+                            <img src="img/south-eastern.png">
+                        </div>
+                    </div>
+                    <div class="home-content">
+                      <img src="img/qr-code.png" id="qrcode">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="choice-content-index">
-      <div class="side-bar">
-        <div class="side-bar_items">
-          <img src="./images/coins.png" />
-          <h2>Coins</h2>
-        </div>
-        <div class="side-bar_items">
-          <img src="./images/cash.png" />
-          <h2>Cash</h2>
-        </div>
-        <div class="side-bar_items">
-          <img src="./images/card.png" />
-          <h2>Card</h2>
-        </div>
-      </div>
-      <div class="main-stuff">
-        <h1 class="main-stuff__text">Welcome, touch the screen to buy your ticket(s)</h1>
-        <div class="main-stuff__icon-row">
-          <button class="main-stuff__icon-row__icon">
-            Oyster
-          </button>
-          <button class="main-stuff__icon-row__icon">
-            A-Z destination finder
-          </button>
-          <button class="main-stuff__icon-row__icon">
-            Collect prepaid ticket(s)
-          </button>
-        </div>
-        <div class="main-stuff__shortcut">
-          <div class="main-stuff__shortcut__info">
-            <img class="main-stuff__shortcut__info__image" src="images/logo.png" />
-            <h2>Put your mind at ease with Shortcut</h2>
-            <ul class="main-stuff__shortcut__list">
-              <li>book frequent journeys in a breeze</li>
-              <li>be sure you are getting the best rate</li>
-              <li>instantly apply travel cards</li>
-            </ul>
-          </div>
-          <img class="main-stuff__shortcut__info__qr" src="images/qr-code.png" />
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-  </script>
-</body>
 
 <script src="/__/firebase/5.5.8/firebase-app.js"></script>
 <script src="/__/firebase/5.5.8/firebase-messaging.js"></script>
