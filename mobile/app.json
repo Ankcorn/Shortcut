@@ -27,7 +27,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "9",
+      "package": "com.chhhchhhchhhhhhh.shortcut",
       "permissions": [
         "CAMERA"
       ]

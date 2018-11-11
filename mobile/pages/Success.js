@@ -8,6 +8,7 @@ import firebase from "firebase";
 
 const Container = styled.View`
     flex: 1;
+    background-color: white;
 `;
 export default class App extends React.Component {
   state = {
@@ -30,7 +31,7 @@ export default class App extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <Container>
-        <Header navigate={navigate} big menu description={`Hey, ${this.state.name}. Follow the instructios on the ticket machine to complete your purchase`} />
+        <Header navigate={navigate} big menu description={`Hey, ${this.state.name}. Please complete the purchase on the Ticket Machine. `} />
             <View style={{
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -38,7 +39,7 @@ export default class App extends React.Component {
                 paddingTop: 100,
                 justifyContent: 'center',
             }}>
-                <Ionicons name="md-arrow-round-up" size={256}/>
+                <Ionicons name="md-train" size={256}/>
             </View>
       </Container>
     );
