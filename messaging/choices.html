@@ -2,54 +2,110 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
-    <script src="vendor/moment.min.js"></script>
+    <script src="scripts/vendor/moment.min.js"></script>
+    <script src="scripts/vendor/qrcode.js"></script>
+    <script src="scripts/clock.js"></script>
+    <script src="scripts/tvm.js"></script>
 </head>
 <body>
-<div class="screen">
-    <div class="header">
-        <div class="left">
-        </div>
-        <div class="centre">
-            London Bridge
-        </div>
-        <div class="right">
-            <img src="img/south-eastern.png">
-        </div>
-    </div>
-    <div class="choice-content">
-        <div class="side-bar">
-            <div class="side-bar_items"><img src="./images/coins.png" /><h2>Coins</h2></div>
-            <div class="side-bar_items"><img src="./images/cash.png" /><h2>Cash</h2></div>
-            <div class="side-bar_items"><img src="./images/card.png" /><h2>Card</h2></div>
-        </div>
-        <div class="welcome-column">
-            <div class="railcard">
-                <h2>Welcome, <strong id="name"></strong>. Your railcard is applied to all purchases.</h2>
-                <img class="railcard-img" src="railcard.gif"/>
-            </div>
-            <div class="navigation">
-            <button>I want to travel elsewhere</button>
-        </div>
-        </div>
-        <div class="choice-column">
-            <h2>Your frequent destinations</h2>
-            <div class="details-container">
-                
+<div class="wrapper">
+    <div class="border-1">
+        <div class="border-2">
+            <div class="screen">
+                <div class="header">
+                    <div class="left">
+                    </div>
+                    <div class="centre">
+                        London Bridge
+                    </div>
+                    <div class="right">
+                        <img src="img/south-eastern.png">
+                    </div>
+                </div>
+                <div class="choice-content">
+                    <div class="welcome-column">
+                        <img class="icon" src="img/logo.png" />
+                        <div class="railcard">
+                            <h2>Welcome, <strong id="name">______</strong></h2>
+                            <p>Your railcard is applied to all purchases.</p>
+                            <img class="railcard-img" src="img/railcard.gif"/>
+                        </div>
+                    </div>
+                    <div class="choice-column">
+                        <h2>Your frequent destinations</h2>
+                        <div class="details-container">
+                            <div class="details">
+                                <h3>East Croydon</h3>
+                                <h4>Adult, 1 ticket</h4>
+                            </div>
+                            <div class="action">
+                                <button>Single £10.70</button>
+                            </div>
+                            <div class="details">
+                                <h3>East Croydon</h3>
+                                <h4>Adult, 1 ticket</h4>
+                            </div>
+                            <div class="action">
+                                <button>Single £10.70</button>
+                            </div>
+                            <div class="details">
+                                <h3>East Croydon</h3>
+                                <h4>Adult, 1 ticket</h4>
+                            </div>
+                            <div class="action">
+                                <button>Single £10.70</button>
+                            </div>
+                            <div class="details">
+                                <h3>East Croydon</h3>
+                                <h4>Adult, 1 ticket</h4>
+                            </div>
+                            <div class="action">
+                                <button>Single £10.70</button>
+                            </div>
+                            <div class="details">
+                                <h3>East Croydon</h3>
+                                <h4>Adult, 1 ticket</h4>
+                            </div>
+                            <div class="action">
+                                <button>Single £10.70</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation">
+                        <button>I want to travel elsewhere</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <script>
 
+let name = ''
+let pricingData = [];
+let pref = ''
 window.onload = async function() {
   const response = await fetch('https://chuuchuu-758d6.firebaseio.com/users/abc.json');
   const data = await response.json();
-
+  name = data.profile.name;
+  pref = data.preferrences.type;
   console.log(data);
   document.querySelector('#name').innerHTML = data.profile.name
-  document.querySelector('.details-container').innerHTML = data.favourites.map((el,index) => 
-    `<div class="details"><h3>${el}</h3><h4>Adult, 1 ticket</h4></div><div class="action${el === 'London Bridge' ? '-disabled' : ''}"><button>${data.preferrences.type ? 'Return': 'Single'} £${(Math.random()*49+1).toFixed(2)}</button></div>`
+  pricingData = data.favourites.map((el, index) => ({
+      station:el,
+      price: `£${(Math.random()*49+1).toFixed(2)}`
+    }))
+  document.querySelector('.details-container').innerHTML = pricingData.map((el,index) => 
+    `<div class="details"><h3>${el.station}</h3><h4>Adult, 1 ticket</h4></div><div class="action${el.station === 'London Bridge' ? '-disabled' : ''}"><button value=${el.station}>${data.preferrences.type ? 'Return': 'Single'} ${el.price}</button></div>`
   ).join('')
 }
+
+document.querySelector('.details-container').addEventListener('click', (e) => {
+    //console.log(e.target.value)
+    //console.log(pricingData)
+    const price = pricingData.find(el => el.station.split(' ').includes(e.target.value)).price
+    //console.log(price)
+    document.location.href = `./confirm.html?destination=${e.target.value}&name=${name}&price=${price}&pref=${pref}`;
+})
 </script>
 </body>

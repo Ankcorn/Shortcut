@@ -6,13 +6,13 @@ admin.initializeApp(functions.config().firebase);
 exports.pairTvm = functions.https.onRequest((req, res) => {
     body = req.body
     console.log(body)
-    var key = '';
-    var to = '';
+    var key = 'AAAACf33bDs:APA91bEy1p-jxyoVEKm5VEILpoCJaZWyzGnTov7YYUHLVpzTR-Y5QqTxGAf2FRtCgJujge3AWodZZ4K0ARh_9Um4h839SSoXmqs1TxSp4KpPoz9kbJ8SgT7MdQajQ6PzEpdShzTG9TPe';
+    var to = body.tvmId;
     var notification = {
       'userId': body.userId,
     };
     
-    return request.post({
+    request.post({
       'headers': {
         'Authorization': 'key=' + key,
         'Content-Type': 'application/json'
@@ -23,7 +23,6 @@ exports.pairTvm = functions.https.onRequest((req, res) => {
         'to': to
       })
     }, function(error, response, body){
-        console.log(body);
-        return true;
+        res.send(response);
     })
   });

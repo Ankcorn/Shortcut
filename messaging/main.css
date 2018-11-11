@@ -1,183 +1,48 @@
-body {
-  display: block;
-  margin: 0px;
-}
-
 .choice-content {
-  font-family: "Source Sans Pro", sans-serif;
-  display: grid;
-  grid-template-columns: 320px 500px auto;
-  grid-template-areas: "empty welcome choice";
-  position: fixed;
-  height: 100%;
-}
-
-.choice-content-index {
-  font-family: "Source Sans Pro", sans-serif;
-  display: grid;
-  grid-template-columns: 320px auto;
-  grid-template-areas: "empty welcome choice";
-  position: fixed;
-  height: 100%;
-}
-
-.main-stuff {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(100vw - 320px);
-}
-
-.main-stuff__text {
-  /* Welcome, touch the s: */
-  font-family: SourceSansPro-SemiBold;
-  font-size: 40px;
-  color: #333333;
-  letter-spacing: 0;
-  text-align: center;
-  width: 100%;
-}
-
-.main-stuff__icon-row {
-  display: flex;
-  justify-content: space-between;
-  width: 70%;
-  margin-bottom: 100px;
-}
-
-.main-stuff__icon-row__icon {
-  background-image: linear-gradient(-180deg, #8fa4ca 2%, #063663 100%);
-  border-radius: 18px;
-  height: 120px;
-  width: 180px;
-  color: white;
-  font-weight: bold;
-  font-size: 24px;
-}
-
-.main-stuff__shortcut {
-  background-image: url('images/background.png');
+  background-image: url(./img/mockups/choice.png);
+  background-size: 100%;
   background-repeat: no-repeat;
-  background-size: 100% 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  flex: 1;
-  padding-left: 40px;
-  padding-right: 40px;
+  font-family: "Source Sans Pro", sans-serif;
+  height: 880px;
+  display: grid;
+  grid-template-columns: 327px 500px auto;
+  grid-template-rows: auto 150px;
+  grid-template-areas: "empty welcome choice" "nav nav nav";
 }
-
-.main-stuff__shortcut__info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 50%;
-  align-self: flex-start;
-  align-items: baseline;
-  padding: 40px;
-}
-
-.main-stuff__shortcut__info__qr {
-  height: 200px;
-  width: 200px;
-  margin-right: 15%;
-}
-
-.main-stuff__shortcut__list {
-  /* • book frequent jour: */
-  font-family: SourceSansPro-Regular;
-  font-size: 26px;
-  color: #2B2B2B;
-  letter-spacing: 0;
-}
-
-.side-bar {
-  height: 100%;
-  background: #b1d8f5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 25px;
-  position: relative;
-  width: 320px;
-}
-
-.side-bar_items {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-
 .choice-content .welcome-column {
   padding: 40px;
   grid-area: welcome;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 200px;
 }
-
 .choice-content .welcome-column .icon {
   height: 80px;
   width: 140px;
-  border: 1px solid red;
 }
-
 .choice-content .welcome-column h2 {
   font-size: 32px;
 }
-
-.railcard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .choice-content .welcome-column p {
   font-size: 28px;
   font-weight: bold;
   margin-top: 60px;
 }
-
 .choice-content .welcome-column img {
   width: 250px;
   height: 150px;
 }
-
 .choice-content .choice-column {
   grid-area: choice;
   padding: 40px;
 }
-
 .choice-content .choice-column h2 {
   font-size: 36px;
 }
-
 .choice-content .choice-column .details-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 100px;
   grid-row-gap: 10px;
 }
-
-.choice-content .choice-column .details-container .action button {
-  background-image: linear-gradient(-180deg, #8fa4ca 2%, #063663 100%);
-  border-radius: 18px;
-  height: 100%;
-  width: 100%;
-  color: white;
-  font-weight: bold;
-  font-size: 24px;
-}
-
 .choice-content .choice-column .details-container .action-disabled button {
-  /* Rectangle 3 Copy 7: */
   background-image: linear-gradient(-180deg, #fbfbfb 2%, #909090 100%);
   border-radius: 18px;
   height: 100%;
@@ -186,7 +51,18 @@ body {
   font-weight: bold;
   font-size: 24px;
 }
-
+.choice-content .choice-column .details-container .action button {
+  background-image: linear-gradient(-180deg, #8FA4CA 2%, #063663 100%);
+  border-radius: 18px;
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+.choice-content .navigation {
+  grid-area: nav;
+}
 .choice-content .navigation button {
   float: right;
   height: 100px;
@@ -197,27 +73,39 @@ body {
   font-size: 32px;
   font-weight: bold;
 }
+.journey-price {
+  font-family: SourceSansPro-SemiBold;
+  font-size: 30px;
+  color: #292929;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 30px;
+}
+.journey-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.down-a-bit {
+  margin-top: 1 50px;
+  margin-left: 50px;
+}
 
 * {
-  font-family: "SourceSansPro", sans-serif;
+  font-family: 'SourceSansPro', sans-serif;
 }
-
 .screen {
-  position: static;
-  width: 100%;
-  height: 100%;
+  display: grid;
+  grid-template-rows: 150px auto;
+  grid-template-areas: "header" "main-content";
 }
-
 .screen .header {
-  background-color: #13171f;
-  flex-direction: row;
-  display: flex;
-  justify-content: space-between;
-  height: 100px;
-  align-items: center;
-  border-right: 1px solid #13171f;
+  grid-area: header;
+  background-color: #13171F;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+  border-right: 1px solid #13171F;
 }
-
 .screen .header .left {
   color: white;
   margin-top: 80px;
@@ -225,14 +113,13 @@ body {
   font-family: Arial, sans-serif;
   margin-left: 50px;
 }
-
 .screen .header .centre {
   color: white;
   font-family: Arial, sans-serif;
   font-size: 32px;
+  margin-top: 80px;
   text-align: center;
 }
-
 .screen .header .right img {
   height: 50px;
   float: right;
@@ -241,11 +128,11 @@ body {
 }
 
 .home-content {
-  background-image: url(./images/mockups/home.png);
+  background-image: url(./img/mockups/home.png);
   background-size: 100%;
   background-repeat: no-repeat;
+  height: 880px;
 }
-
 .home-content #qrcode {
   height: 255px;
   width: 255px;
@@ -255,6 +142,10 @@ body {
   background-color: white;
 }
 
+body {
+  background-image: url(./img/debut_dark.png);
+  background-repeat: repeat;
+}
 .wrapper {
   width: 1700px;
   height: 1200px;
@@ -264,7 +155,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .wrapper .border-1 {
   padding: 50px;
   background-color: #423828;
@@ -272,21 +162,18 @@ body {
   border-radius: 40px;
   border: 2px solid #4b4030;
 }
-
 .wrapper .border-1 .border-2 {
   padding: 25px;
-  background-color: #24251f;
+  background-color: #24251F;
   height: calc(100% - (2 * 25px));
   border-radius: 20px;
   border: 1px solid black;
 }
-
 .wrapper .border-1 .border-2 .screen {
   background-color: white;
   height: calc(100% - 20px);
   border: 10px solid black;
 }
-
 .header {
   height: 100px;
   width: 100%;
