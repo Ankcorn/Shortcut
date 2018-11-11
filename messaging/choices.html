@@ -109,16 +109,3 @@ document.querySelector('.details-container').addEventListener('click', (e) => {
 })
 </script>
 </body>
-
-window.onload = async function() {
-  const response = await fetch('https://chuuchuu-758d6.firebaseio.com/users/abc.json');
-  const data = await response.json();
-
-  console.log(data);
-  document.querySelector('#name').innerHTML = data.profile.name
-  document.querySelector('.details-container').innerHTML = data.favourites.map((el,index) => 
-    `<div class="details"><h3>${el}</h3><h4>Adult, 1 ticket</h4></div><div class="action${el === 'London Bridge' ? '-disabled' : ''}"><button>${data.preferrences.type ? 'Return': 'Single'} £${(Math.random()*49+1).toFixed(2)}</button></div>`
-  ).join('')
-}
-</script>
-</body>
