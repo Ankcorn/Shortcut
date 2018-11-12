@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <script src="scripts/vendor/moment.min.js"></script>
+    <script src="scripts/vendor/qrcode.js"></script>
+    <script src="scripts/clock.js"></script>
+    <script src="scripts/tvm.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="border-1">
+            <div class="border-2">
+                <div class="screen">
+                    <div class="header">
+                        <div class="left">
+                        </div>
+                        <div class="centre">
+                            London Bridge
+                        </div>
+                        <div class="right">
+                            <img src="img/south-eastern.png">
+                        </div>
+                    </div>
+                    <div class="choice-content">
+                        <div class="welcome-column">
+                            <img class="icon" src="img/logo.png" />
+                            <div class="railcard">
+                                <h2>Welcome, <strong id="name">______</strong></h2>
+                                <p>Your railcard is applied to all purchases.</p>
+                                <img class="railcard-img" src="img/railcard.gif"/>
+                                <h2>You can use this ticket on any off-peak (00.00-14.00) train from London Bridge to <strong class="journey-dest"></strong> in the Standard class.</h2>
+                            </div>
+                        </div>
+                        <div class="choice-column">
+                            <div class="journey-wrapper">
+                                <div class="journey-details">
+                                    <h2 class="journey-dest-2"></h2>
+                                    <p class="journey-settings"></p>
+                                </div>
+                                <p class="journey-price"></p>
+                            </div>
+                            <h2 class="down-a-bit">Proceed with payment</h2>
+                        </div>
+                        <div class="navigation">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = async function () {
+            function QueryStringToJSON() {
+                var pairs = location.search.slice(1).split('&');
+
+                var result = {};
+                pairs.forEach(function (pair) {
+                    pair = pair.split('=');
+                    result[pair[0]] = decodeURIComponent(pair[1] || '');
+                });
+
+                return JSON.parse(JSON.stringify(result));
+            }
+
+            const query_string = QueryStringToJSON();
+            console.log(query_string);
+            document.querySelector('#name').innerHTML = query_string.name;
+            document.querySelector('.journey-price').innerHTML = `${query_string.pref ? 'Single' : 'Double'} ${query_string.price}`;
+            document.querySelector('.journey-dest').innerHTML = query_string.destination;
+            document.querySelector('.journey-dest-2').innerHTML = query_string.destination;
+            document.querySelector('.journey-settings').innerText = `Adult, 1 ticket, Standard class`
+        }
+    </script>
+</body>
