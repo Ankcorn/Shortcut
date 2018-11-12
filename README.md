@@ -18,7 +18,7 @@ We built Shortcut with usability in mind. Heidi our designer used her experience
 
 The technical solution designed by Kevin is elegant and keeps in mind security and data privacy by only transmitting non-sensitive data across the internet (i.e. userId).
 
-![High Level Design](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/721/098/datas/small.png )
+![High Level Design](./diagrams/HLD.png)
 
 Slides: link
 
