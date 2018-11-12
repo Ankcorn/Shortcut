@@ -67,7 +67,7 @@ The mobile application written in React Native using Expo and therefore requires
     
     cd mobile
     npm install
-    
+
     Populate the Env.js file with your environment's Firebase credentials:
     dev: {
       API_KEY: "",
@@ -81,6 +81,7 @@ The mobile application written in React Native using Expo and therefore requires
 ## TVM
 
 The TVM code is written in simple HTML and CSS to start that:
+    
     cd tvm
     firebase serve -p 8081
     Go to your browser and navigate to http://localhost:8081
