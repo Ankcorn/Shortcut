@@ -64,6 +64,7 @@ The utilises Firebase [https://firebase.google.com/]. It's an easy way to stand 
 ## Mobile app
 
 The mobile application written in React Native using Expo and therefore requires the Expo Cli to be install globally. To install Expo: https://docs.expo.io/versions/latest/
+    
     cd mobile
     npm install
     
@@ -83,7 +84,7 @@ The TVM code is written in simple HTML and CSS to start that:
     cd tvm
     firebase serve -p 8081
     Go to your browser and navigate to http://localhost:8081
-    
+
 
 ## Future Work
 
