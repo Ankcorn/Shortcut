@@ -38,6 +38,53 @@ This project uses:
  - HTML/CSS
  - Firebase [https://firebase.google.com/]
 
+# How Run
+This project is separated into 3 distrinct projects:
+
+ - Mobile app
+ - TVM
+ - Backend code
+
+## Backend
+The utilises Firebase [https://firebase.google.com/]. It's an easy way to stand up a database and a notification service.
+
+    Follow this guide to create an instance: [https://firebase.google.com/docs/web/setup]
+    Use the Node.js instructions.
+    npm install -g firebase-tools //You will also need firebase-tools install globally
+
+    Go to your Firebase console and press "Project Overview", switch to the "Cloud Messaging" tab and copy your Service Key.
+    
+    cd backend
+    npm install
+    copy you service key into:
+        var key = '';
+    firebase serve --only functions // pushes up the Could Function
+
+
+## Mobile app
+
+The mobile application written in React Native using Expo and therefore requires the Expo Cli to be install globally. To install Expo: https://docs.expo.io/versions/latest/
+    cd mobile
+    npm install
+    
+    Populate the Env.js file with your environment's Firebase credentials:
+    dev: {
+      API_KEY: "",
+      AUTH_DOMAIN: "",
+      DATABASE_URL: "",
+      PROJECT_ID: "",
+      STORAGE_BUCKET: "",
+      MESSAGING_SENDER_ID: ""
+    }
+
+## TVM
+
+The TVM code is written in simple HTML and CSS to start that:
+    cd tvm
+    firebase serve -p 8081
+    Go to your browser and navigate to http://localhost:8081
+    
+
 ## Future Work
 
 Although we chose to use Firebase as a backend solution, there is no reason that customer preferences and details could not be pre-populated and drawn from data federated from train operators, Department For Transport (DFT) and other data sources. This would provide even more extensibility for the Shortcut service.
