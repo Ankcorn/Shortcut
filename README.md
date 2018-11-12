@@ -1,5 +1,23 @@
-# ChhhChhhChhhhhh
-Making TVM's more accessible
+# Shortcut
+Making Ticket Vending Machines more accessible for all.
+
+The project came to inception during HackTrain 5.0, with the aim of creating a product which tackles customer service and user experience in the rail industry. Something that we've all experienced is the frustrating and confusing experience of buying train tickets at stations. The DFT (Department For Transport) has commisioned many studies for this they found that there was a high rate of user failures and the lack accessibility for disabled users when purchasing at ticketing machines (more in the useful links section). Tom Ankcorn came up with a novel solution to improve the ticket machine purchasing experience without the use of additional hardware with the aim of reducing the number of steps to purchase a ticket.
+
+This project started as the output of a HackTrain5: https://twitter.com/thehacktrain?lang=en
+More about Shortcut be found her: https://devpost.com/software/chhhchhhchhhhhh
+
+## What Shortcut Does
+By using the common solution of QR codes we're able to quickly identify which ticket machine a user is trying to use and therefore load the users preferences directly to the ticket machine itself - including: accessibility details, favourite destinations and railcards. This allows us to customise the ticket machine user experience and therefore reduces the ticket purchasing steps from 9 to 4.
+
+## How We Built It
+
+We built Shortcut with usability in mind. Heidi our designer used her experience to create a design that is both familiar to existing users but also strips away the annoying parts of purchasing a ticket.
+
+The technical solution designed by Kevin is elegant and keeps in mind security and data privacy by only transmitting non-sensitive data across the internet (i.e. userId).
+
+(./diagrams/HLD.png)
+
+Slides: link
 
 ## Useful Links
 
