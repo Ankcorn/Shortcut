@@ -40,7 +40,7 @@ This project uses:
 
 ## Future Work
 
-Although we chose to use Firebase as a backend solution, there is no reason that customer preferences and details could not be pre-populated and draw from data federated from train operators, Department For Transport (DFT) and other data sources. This would provide even more extensibility for the Shortcut service.
+Although we chose to use Firebase as a backend solution, there is no reason that customer preferences and details could not be pre-populated and drawn from data federated from train operators, Department For Transport (DFT) and other data sources. This would provide even more extensibility for the Shortcut service.
 
 ## Useful Links
 ORR passenger rail usage: http://orr.gov.uk/__data/assets/pdf_file/0014/28013/passenger-rail-usage-2017-18-q4.pdf
