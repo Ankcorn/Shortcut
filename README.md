@@ -17,7 +17,7 @@ By using the common solution of QR codes we're able to quickly identify which ti
  - My favorite destinations
  - Accesibility at the ticket machine
  - Preferred settings (including: class, type of journey)
- - Railc cards
+ - Rail cards
  - Preferred language
 2. Next time the user goes to buy a ticket they activate the QR scanner in the app
 3. Scan the QR code
