@@ -2,20 +2,26 @@
 # Shortcut
 Making Ticket Vending Machines (TVM) more accessible for all.
 
-The project came to inception during HackTrain 5.0, with the aim of creating a product which tackles customer service and user experience in the rail industry. Something that we've all experienced is the frustrating and confusing experience of buying train tickets at stations. The DFT (Department For Transport) has commisioned many studies for this they found that there was a high rate of user failures and the lack accessibility for disabled users when purchasing at ticketing machines (more in the useful links section). Tom came up with a novel solution to improve the ticket machine purchasing experience without the use of additional hardware with the aim of reducing the number of steps to purchase a ticket.
+The project came to inception during HackTrain 5.0, with the aim of creating a product which tackles customer service and user experience in the rail industry. Something that we've all experienced is the frustrating and confusing experience of buying train tickets at stations.
+
+The DFT (Department For Transport, UK) have found that there was a high rate of user failures and the lack accessibility for disabled users when purchasing at ticketing machines (more in the useful links section). Tom came up with a novel solution to improve the ticket machine purchasing experience without the use of additional hardware with the aim of reducing the number of steps to purchase a ticket.
 
 This project started as the output of a HackTrain5: https://twitter.com/thehacktrain?lang=en
 
 More about Shortcut be found her: https://devpost.com/software/chhhchhhchhhhhh
 
 ## What Shortcut Does
-By using the common solution of QR codes we're able to quickly identify which ticket machine a user is trying to use and therefore load the users preferences directly to the ticket machine itself - including: accessibility details, favourite destinations and railcards. This allows us to customise the ticket machine user experience and therefore reduces the ticket purchasing steps from 9 to 4.
+By using the common solution of QR codes we're able to quickly identify which ticket machine a user is trying to use and therefore load the users preferences directly to the ticket machine itself - including: accessibility details, favourite destinations and railcards.
+
+This allows us to customise the ticket machine user experience and therefore reduces the ticket purchasing steps from 9 to 4.
+
+All this with no additional hardware.
 
 ### User Journey
 1. A user creates a profile within the mobile app. This includes:
  - Name and age
- - My favorite destinations
- - Accesibility at the ticket machine
+ - Favorite destinations
+ - Accesibility details (High Contrast, Large Text)
  - Preferred settings (including: class, type of journey)
  - Rail cards
  - Preferred language
@@ -48,21 +54,21 @@ This project is separated into 3 distrinct projects:
 ## Backend
 The utilises Firebase [https://firebase.google.com/]. It's an easy way to stand up a database and a notification service.
 
-    Follow this guide to create an instance: [https://firebase.google.com/docs/web/setup]
-    Use the Node.js instructions.
+    Follow this guide to create an instance: [https://firebase.google.com/docs/web/setup] Use the Node.js instructions.
     npm install -g firebase-tools //You will also need firebase-tools install globally
 
     Go to your Firebase console and press "Project Overview", switch to the "Cloud Messaging" tab and copy your Service Key.
     
     cd backend
     npm install
-    copy you service key into:
+    copy you service key into backend/index.js:
+
         var key = '';
-    firebase serve --only functions // pushes up the Could Function
+
+    firebase serve --only functions // pushes up the Cloud Function
 
 
 ## Mobile app
-
 The mobile application written in React Native using Expo and therefore requires the Expo Cli to be install globally. To install Expo: https://docs.expo.io/versions/latest/
     
     cd mobile
@@ -86,10 +92,14 @@ The TVM code is written in simple HTML and CSS to start that:
     firebase serve -p 8081
     Go to your browser and navigate to http://localhost:8081
 
+Generate a QR code for your TVM:
+
 
 ## Future Work
 
 Although we chose to use Firebase as a backend solution, there is no reason that customer preferences and details could not be pre-populated and drawn from data federated from train operators, Department For Transport (DFT) and other data sources. This would provide even more extensibility for the Shortcut service.
+
+We created this service to cater primarily for disabled and elderly users. However the idea is extensible to people who's primary language isn't English and might be useful in other scenarios where customisation can help make the user experience more enjoyable.
 
 ## Useful Links
 ORR passenger rail usage: http://orr.gov.uk/__data/assets/pdf_file/0014/28013/passenger-rail-usage-2017-18-q4.pdf

@@ -106,8 +106,8 @@ export default class App extends React.Component {
             description="You’ll be able to purchase these with a single tap at the machine."
           />
           <ToggleSelect
-            title="Accessability at the ticket machine"
-            keyName="accessability"
+            title="Accessibility at the ticket machine"
+            keyName="accessibility"
           />
           <SwitchSelect
             title="Preferred settings"
