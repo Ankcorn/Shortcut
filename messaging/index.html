@@ -41,6 +41,7 @@
   messaging.usePublicVapidKey('BPeySgkBCNTnAD0FIrigyd_P0ECoBM-U9HwSZbb2zhWAjsH67zl0xW-xpcoxAUDuWpZFy2FuvID0BH8Ofobrlsg');
   const tokenDivId = 'token_div';
   const permissionDivId = 'permission_div';
+  console.log(messaging.getToken().then(data=>console.log(data)))
   requestPermission()
   messaging.onTokenRefresh(function () {
     messaging.getToken().then(function (refreshedToken) {

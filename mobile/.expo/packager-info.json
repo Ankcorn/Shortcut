@@ -1,9 +1,9 @@
 {
   "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://gq-enk.anonymous.mobile.exp.direct",
-  "packagerNgrokUrl": "https://packager.gq-enk.anonymous.mobile.exp.direct",
-  "ngrokPid": 28330,
+  "expoServerNgrokUrl": "https://gq-enk.thomasankcorn.mobile.exp.direct",
+  "packagerNgrokUrl": "https://packager.gq-enk.thomasankcorn.mobile.exp.direct",
+  "ngrokPid": 30305,
   "devToolsPort": 19002,
-  "packagerPort": 19006,
-  "packagerPid": 28291
+  "packagerPort": 19003,
+  "packagerPid": 30285
 }
