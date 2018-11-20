@@ -56,7 +56,7 @@ export default class ToggleSelect extends React.Component {
   };
 
   async componentDidMount() {
-      const users = firebase.database().ref('users/' + "abc" + "/accessability")
+      const users = firebase.database().ref('users/' + "abc" + "/accessibility")
       users.on('value', (snapshot) => {
         const exists = (snapshot.val() !== null);
         if(!exists) return;
@@ -68,12 +68,12 @@ export default class ToggleSelect extends React.Component {
   }
   toggle = (setting) => {
     if(setting==='contrast') {
-        return firebase.database().ref('users/' + "abc" + "/accessability").set({
+        return firebase.database().ref('users/' + "abc" + "/accessibility").set({
             highContrast: !this.state.highContrast,
             largeText: this.state.largeText
         })
     }
-    return firebase.database().ref('users/' + "abc" + "/accessability").set({
+    return firebase.database().ref('users/' + "abc" + "/accessibility").set({
         highContrast: this.state.highContrast,
         largeText: !this.state.largeText
     })
