@@ -84,12 +84,33 @@
 let name = ''
 let pricingData = [];
 let pref = ''
+let largeText; 
 window.onload = async function() {
   const response = await fetch('https://chuuchuu-758d6.firebaseio.com/users/abc.json');
   const data = await response.json();
   name = data.profile.name;
   pref = data.preferrences.type;
-  console.log(data);
+  largeText = data.accessability.largeText;
+  if(largeText) {
+    document.querySelector('.choice-content').className = "choice-content-accessibility"
+      document.querySelector('.choice-content-accessibility').innerHTML = `
+        <div class="accessibility-container">
+            <div class="header">
+                <img class="icon" src="img/logo.png" />
+                <h1 class="heading">Welcome, ${name}</h1>
+            </div>
+            <div><p class="text">Your rail card is applied to all purchases.</p></div>
+            <div class="buttons">
+                <div class="action-disabled">
+                    <button>I want to travel elsewhere</button>
+                </div>
+                <div class="action">
+                    <button>Your frequent destinations</button>
+                </div>
+            </div>
+        </div>
+      `;
+  }
   document.querySelector('#name').innerHTML = data.profile.name
   pricingData = data.favourites.map((el, index) => ({
       station:el,
