@@ -187,7 +187,7 @@ body {
   height: 880px;
   display: grid;
   grid-template-columns: 327px auto;
-  grid-template-rows: auto  ;
+  grid-template-rows: auto;
   grid-template-areas: "empty welcome";
 }
 
@@ -255,11 +255,157 @@ body {
   border-radius: 18px;
   height: 100%;
   width: 420px;
-  padding: 20px
+  padding: 20px;
   /* I want to travel els: */
   font-family: SourceSansPro-SemiBold;
   font-size: 50px;
   color: #1D2452;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 80px;
+}
+
+.journey-container {
+  grid-area: welcome;
+}
+
+.choice-content-accessibility .header {
+  display: flex;
+  background-color: white;
+  height: 180px;
+}
+
+.accessibility-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.accessibility-heading .heading {
+  /* Welcome, Leon.: */
+  font-family: SourceSansPro-SemiBold;
+  font-size: 80px;
+  margin-top: 15px;
+  color: #333333;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.choice-content-accessibility .accessibility-heading {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.choice-content-accessibility .accessibility-options {
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+  grid-template-rows: 4fr 4fr 4fr;
+  align-items: center;
+  position: relative;
+  height: 710px;
+  width: 100%;
+}
+
+.accessibility-options .action {
+  display: flex;
+  justify-content: center;
+}
+.accessibility-options .action button {
+  background-image: linear-gradient(-180deg, #8FA4CA 2%, #063663 100%);
+  border-radius: 18px;
+  padding: 20px;
+  width: 420px;
+    /* I want to travel els: */
+  font-family: SourceSansPro-SemiBold;
+  font-size: 40px;
+  color: white;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 80px;
+}
+
+.accessibility-options .action-disabled {
+  display: flex;
+  justify-content: center;
+}
+
+.accessibility-options .action p {
+  margin: 0px;
+}
+.accessibility-options .action-disabled button {
+  background-color: white;
+  border: solid #1D2452 5px;
+  border-radius: 18px;
+  width: 420px;
+  height: 202px;
+  padding: 20px;
+  /* I want to travel els: */
+  font-family: SourceSansPro-SemiBold;
+  font-size: 40px;
+  color: #1D2452;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 80px;
+}
+
+.accessibility-done {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.accessibility-done h1{
+   /* I want to travel els: */
+   font-family: SourceSansPro-Bold;
+   font-size: 60px;
+   color: #1D2452;
+   letter-spacing: 0;
+   text-align: left;
+   line-height: 80px;
+}
+
+.accessibility-done p{
+   /* I want to travel els: */
+   font-family: SourceSansPro-SemiBold;
+   font-size: 40px;
+   color: #1D2452;
+   letter-spacing: 0;
+   text-align: left;
+   line-height: 80px;
+}
+
+.accessibility-actions {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%
+}
+
+.accessibility-actions .action-disabled button {
+  background-color: white;
+  border: solid #1D2452 5px;
+  border-radius: 18px;
+  width: 420px;
+  height: 202px;
+  padding: 20px;
+  /* I want to travel els: */
+  font-family: SourceSansPro-SemiBold;
+  font-size: 40px;
+  color: #1D2452;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 80px;
+}
+
+.accessibility-actions .action button{
+  background-image: linear-gradient(-180deg, #8FA4CA 2%, #063663 100%);
+  border-radius: 18px;
+  padding: 20px;
+  width: 420px;
+  height: 202px;
+    /* I want to travel els: */
+  font-family: SourceSansPro-SemiBold;
+  font-size: 40px;
+  color: white;
   letter-spacing: 0;
   text-align: center;
   line-height: 80px;

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+  <link
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="main.css" />
+  <script src="scripts/vendor/moment.min.js"></script>
+  <script src="scripts/vendor/qrcode.js"></script>
+  <script src="scripts/clock.js"></script>
+  <script src="scripts/tvm.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="border-1">
+      <div class="border-2">
+        <div class="screen">
+          <div class="header">
+            <div class="left"></div>
+            <div class="centre">London Bridge</div>
+            <div class="right"><img src="img/south-eastern.png" /></div>
+          </div>
+          <div class="choice-content-accessibility">
+            <div class="journey-container">
+              <div class="accessibility-heading">
+                <img class="icon" src="img/logo.png" />
+                <p id="destination" class="heading"></p>
+              </div>
+              <div class="accessibility-done">
+                <h1>Adult, Standard class, Senior discount</h1>
+                <p>You can use this ticket on any off-peak (10 AM — 4.30 PM and after 7 PM) train from London Bridge to East Croydon in the Standard class</p>
+                <div class="accessibility-actions">
+                    <div class="action-disabled"><button value="back">&lt; Back</button></div>
+                    <div class="action"><button value="back">Payment</button></div>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let name = "";
+    let pricingData = [];
+    let pref = "";
+    let largeText;
+    window.onload = async function() {
+        function QueryStringToJSON() {
+                var pairs = location.search.slice(1).split('&');
+
+                var result = {};
+                pairs.forEach(function (pair) {
+                    pair = pair.split('=');
+                    result[pair[0]] = decodeURIComponent(pair[1] || '');
+                });
+
+                return JSON.parse(JSON.stringify(result));
+            }
+
+            const query_string = QueryStringToJSON();
+            name = query_string.name;
+            pref = query_string.pref;
+            const destination = query_string.destination;
+            const price = query_string.price;
+            
+            document.querySelector('#destination').innerHTML = `${destination} - ${pref === "true" ? 'Double': 'Single'}`;
+    }
+  </script>
+</body>
